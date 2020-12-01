@@ -17,6 +17,7 @@ Programs Statement:
 #include <cmath>
 using namespace std;
 
+
 float Area()
 {
     const float PI = 3.14; // constant variable tyoe of float
@@ -69,6 +70,20 @@ int Circumference(int side1)
     return (4*side1);
 }
 
+int largest(int num1, int num2)
+{
+    return ((num1>num2)?num1:num2);
+}
+
+float largest(float num1, float num2)
+{
+    return ((num1>num2)?num1:num2);
+}
+template<class Types>
+Types largest_converted(Types num1, Types num2)
+{
+    return ((num1>num2)?num1:num2);
+}
 int main()
 {
     int choice; 
@@ -104,10 +119,14 @@ int main()
             cout << "Circumference of a square: " << Circumference(side1) << endl;
             break;
         case 3:
-            
+            cout << "Write two numbers to know which one is bigger\n";
+            cin >> side1 >> side2;
+            cout << "The largest between " << side1 << " and " << side2 << " is " << largest(side1,side2) << endl;
             break;
         case 4:
-             
+            cout << "Write two numbers to know which one is bigger\n";
+            cin >> side1 >> side2;
+            cout << "The largest between " << side1 << " and " << side2 << " is " << largest_converted(side1,side2) << endl;             
             break;
         case 0:
             return 0;
@@ -116,7 +135,6 @@ int main()
             break;
         }
     } while (choice != 0);
-
     system("pause");
     return 0;    
 }
